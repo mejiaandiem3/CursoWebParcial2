@@ -38,7 +38,7 @@ class ArtistasController extends Controller
      */
     public function show(Artistas $artistas)
     {
-        //
+        return view('layout/deleteArtista');
     }
 
     /**
@@ -46,7 +46,7 @@ class ArtistasController extends Controller
      */
     public function edit(Artistas $artistas)
     {
-        return("Aqui se puede actualizar a un artista");
+        return view('layout/editArtista');
     }
 
     /**
@@ -62,6 +62,6 @@ class ArtistasController extends Controller
      */
     public function destroy(Artistas $artistas)
     {
-        //
+       
     }
 }

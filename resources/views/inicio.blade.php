@@ -12,7 +12,7 @@
     </p>
    <hr>
     <p class="card-text">
-      <table class="table table-striped"_>
+      <table class="table table-striped">
         <thead>
           <tr>
             <th scope="col" >Id</th>
@@ -32,8 +32,8 @@
             <td>{{$artista->apaterno}}</td>
             <td>{{$artista->amaterno}}</td>
             <td>{{$artista->resena}}</td>
-            <td></td>
-            <td></td>
+            <td style="text-align: center;"><a href=""><i class="bi bi-pen"></i></a></td>
+            <td style="text-align: center;"><a href=""><i class="bi bi-trash-fill"></i></a></td>
           </tr>
           @endforeach
         </tbody>
