@@ -19,22 +19,22 @@
             <th scope="col" >Apellido Paterno</th>
             <th scope="col" >Apellido Materno</th>
             <th scope="col" >Reseña</th>
-            <th scope="col" >Editar</th>
-            <th scope="col" >Elininar</th>
           </tr>
         </thead>
         <tbody>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{{$artista->id}}</td>
+          <td>{{$artista->nombre}}</td>
+          <td>{{$artista->apaterno}}</td>
+          <td>{{$artista->amaterno}}</td>
+          <td>{{$artista->resena}}</td>
         <tr>
         </tbody>
       </table>
       <hr>
-      <form action=""]>
+      <form action='{{url("/destroy/{$artista->id}")}}' method="post">
+        @csrf
+        @method('delete')
         <a href="{{route('artistas.index')}}" class="btn btn-secondary">Regresar</a>
         <button class="btn btn-danger">Eliminar</button>
       </form>

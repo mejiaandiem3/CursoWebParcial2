@@ -30,38 +30,59 @@ class ArtistasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $artista = new Artistas();
+        $artista->nombre = $request->nombre;
+        $artista->apaterno = $request->apaterno;
+        $artista->amaterno= $request->amaterno;
+        $artista->resena = $request->resena;
+
+
+        $artista->save();
+        return redirect()->route('artistas.index')->with("success","Guardado el registro!");
+        
+
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Artistas $artistas)
+    public function show(int $id)
     {
-        return view('layout/deleteArtista');
+        $artista = Artistas::find($id);
+        return view('layout/deleteArtista',compact('artista'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Artistas $artistas)
+    public function edit(int $id)
     {
-        return view('layout/editArtista');
+        $artista = Artistas::find($id);
+        return view('layout/editArtista',compact('artista'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Artistas $artistas)
+    public function update(Request $request, int $id)
     {
-        //
+        $artista = Artistas::find($id);
+        $artista->nombre = $request->nombre;
+        $artista->apaterno = $request->apaterno;
+        $artista->amaterno = $request->amaterno;
+        $artista->resena = $request->resena;
+
+        $artista->save();
+        return redirect('/');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Artistas $artistas)
+    public function destroy(int $id)
     {
-       
+        $artista = Artistas::find($id);
+        $artista->delete();
+        return redirect('/');
     }
 }

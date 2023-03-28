@@ -8,20 +8,21 @@
   <div class="card-body">
     
     <p class="card-text">
-        <form action="#">
+        <form method="post">
           @csrf
-            <label for="">Nombre</label>
-            <input type="text" name="nombre" class="form-control" required>
-            <label for="">Apellido Paterno</label>
-            <input type="text" name="aparternol" class="form-control" required>
-            <label for="">Apellido Materno</label>
-            <input type="text" name="amaternol" class="form-control" required>
-            <label for="">Reseña</label>
-            <textarea name="resena" class="form-control" id="resena" row="3"></textarea>
+          @method('put')
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" class="form-control" value="{{$artista->nombre}}" required>
+            <label for="apaterno">Apellido Paterno</label>
+            <input type="text" name="apaterno" class="form-control" value="{{$artista->apaterno}}" required>
+            <label for="amaterno">Apellido Materno</label>
+            <input type="text" name="amaterno" class="form-control" value="{{$artista->amaterno}}" required>
+            <label for="resena">Reseña</label>
+            <textarea name="resena" class="form-control" id="resena" row="3">
+            {{$artista->resena}}
+            </textarea>
             <a href="{{route('artistas.index')}}" class="btn btn-secondary">Regresar</a>
             <button class="btn btn-primary">Editar</button>
-
-
         </form>
     </p>
     
